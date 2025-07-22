@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 namespace Eiko\Cli\Commands;
 
+require_once __DIR__ . '/../Templates/Template.php';
+
 use Eiko\Cli\Templates\Template;
 
 final class Init
