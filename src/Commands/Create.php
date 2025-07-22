@@ -14,6 +14,14 @@ final class Create
 
     public static function runCommand(array $args): void
     {
+        if (!\file_exists('./src')) {
+            echo
+            '----------------------------------------------------' . \PHP_EOL .
+            'WARNING: run `cd server` before creating components!' . \PHP_EOL .
+            '----------------------------------------------------' . \PHP_EOL;
+            exit(0);
+        }
+
         [$file, $name] = [$args[2] ?? '', $args[3] ?? ''];
 
         switch ($file) {
