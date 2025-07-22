@@ -1,0 +1,22 @@
+{
+    "name": "eiko/cli",
+    "description": "A command-line tool for scaffolding LeafPHP projects with standardized structure and boilerplate code",
+    "type": "library",
+    "require": {
+        "php": ">=8.1"
+    },
+    "license": "MIT",
+    "bin": ["bin/eiko"],
+    "autoload": {
+        "psr-4": {
+            "Eiko\\Cli\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TimurDev",
+            "email": "dev.schuchkin.timur@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

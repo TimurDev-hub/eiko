@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php declare(strict_types=1);
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Eiko\Cli\Commands\Create;
+use Eiko\Cli\Commands\Init;
+
+switch($argv[1]) {
+    case 'init':
+        echo Init::runCommand();
+        break;
+    case 'create':
+        echo Create::runCommand(args: $argv);
+        break;
+    default:
+        echo
+        '--------------' . \PHP_EOL .
+        'Commands list:' . \PHP_EOL .
+        '--------------' . \PHP_EOL .
+        '|eiko init                                     |-> Init structure;' . \PHP_EOL .
+        '|eiko create <route, controller, model> <name> |-> Creating components;' . \PHP_EOL;
+}
+
+exit(0);

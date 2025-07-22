@@ -1,0 +1,48 @@
+<?php declare(strict_types=1);
+namespace Eiko\Cli\Generators;
+
+final class Route
+{
+    private function __construct() {}
+    private function __clone() {}
+
+    public static function generate(string $name): void
+    {
+        $content = <<<PHP
+        <?php declare(strict_types=1);
+        namespace Core\Routes;
+
+        use Leaf\App;
+
+        final class $name
+        {
+            private function __construct() {}
+            private function __clone() {}
+
+            public static function defineRoutes(App \$app): void
+            {
+                \$app->group(path: '/path', handler: function() use (\$app): void {
+                    \$app->post(pattern: '/postMethod', handler: function(): void {
+                        /** */
+                    });
+
+                    \$app->put(pattern: '/putMethod', handler: function(): void {
+                        /** */
+                    });
+
+                    \$app->delete(pattern: '/deleteMethod', handler: function(): void {
+                        /** */
+                    });
+                });
+            }
+        }
+
+        PHP;
+
+        \file_put_contents("./src/core/Routes/{$name}.php", $content);
+        echo
+        '---------------------------------------------------------' . \PHP_EOL .
+        "Route [$name] created in [./src/core/Routes/{$name}.php]!" . \PHP_EOL .
+        '---------------------------------------------------------' .\PHP_EOL;
+    }
+}
