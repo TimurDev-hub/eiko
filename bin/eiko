@@ -3,6 +3,7 @@
 
 require_once __DIR__ . '/../src/Commands/Init.php';
 require_once __DIR__ . '/../src/Commands/Create.php';
+//require_once __DIR__ . '/../vendor/autoload.php';
 
 use Eiko\Cli\Commands\Init;
 use Eiko\Cli\Commands\Create;
