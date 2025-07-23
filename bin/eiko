@@ -8,20 +8,29 @@ require_once __DIR__ . '/../src/Commands/Create.php';
 use Eiko\Cli\Commands\Init;
 use Eiko\Cli\Commands\Create;
 
-switch($argv[1]) {
-    case 'init':
-        echo Init::runCommand();
-        break;
-    case 'create':
-        echo Create::runCommand(args: $argv);
-        break;
-    default:
-        echo
-        '--------------' . \PHP_EOL .
-        'Commands list:' . \PHP_EOL .
-        '--------------' . \PHP_EOL .
-        '|eiko init                                     |-> Init structure;' . \PHP_EOL .
-        '|eiko create <route, controller, model> <name> |-> Creating components;' . \PHP_EOL;
+try {
+    switch($argv[1]) {
+        case 'init':
+            echo Init::runCommand();
+            break;
+        case 'create':
+            echo Create::runCommand(args: $argv);
+            break;
+        default:
+            echo
+            '--------------' . \PHP_EOL .
+            'Commands list:' . \PHP_EOL .
+            '--------------' . \PHP_EOL .
+            '|eiko init                                                |-> Init structure;' . \PHP_EOL .
+            '|eiko create <controller, middleware, model, route> <name>|' . \PHP_EOL;
+    }
+} catch (Throwable) {
+    echo
+    '-------------------------' . \PHP_EOL .
+    '|Something went wrong...|' . \PHP_EOL .
+    '|Run `eiko i`           |' . \PHP_EOL .
+    '-------------------------' . \PHP_EOL;
+    exit(1);
 }
 
 exit(0);
