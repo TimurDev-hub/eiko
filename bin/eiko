@@ -9,7 +9,7 @@ use Eiko\Cli\Commands\Init;
 use Eiko\Cli\Commands\Create;
 
 try {
-    switch($argv[1]) {
+    switch($argv[1] ?? '') {
         case 'init':
             echo Init::runCommand();
             break;
@@ -22,7 +22,7 @@ try {
             'Commands list:' . \PHP_EOL .
             '--------------' . \PHP_EOL .
             '|eiko init                                                |-> Init structure;' . \PHP_EOL .
-            '|eiko create <controller, middleware, model, route> <name>|' . \PHP_EOL;
+            '|eiko create <controller, middleware, model, route> <name>|-> Creat component;' . \PHP_EOL;
     }
 } catch (Throwable) {
     echo
@@ -30,6 +30,7 @@ try {
     '|Something went wrong...|' . \PHP_EOL .
     '|Run `eiko i`           |' . \PHP_EOL .
     '-------------------------' . \PHP_EOL;
+
     exit(1);
 }
 
