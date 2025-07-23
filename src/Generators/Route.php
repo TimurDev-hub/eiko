@@ -39,6 +39,14 @@ final class Route
 
         PHP;
 
+        if (!\file_exists('./src/core/Routes')) {
+            echo
+            '-----------------------------------------------' . \PHP_EOL .
+            'WARNING: dir [./src/core/Routes] not exists!' . \PHP_EOL .
+            '-----------------------------------------------' .\PHP_EOL;
+            exit(1);
+        }
+
         \file_put_contents("./src/core/Routes/{$name}.php", $content);
         echo
         '---------------------------------------------------------' . \PHP_EOL .

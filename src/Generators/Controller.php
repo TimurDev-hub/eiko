@@ -24,6 +24,14 @@ final class Controller
 
         PHP;
 
+        if (!\file_exists('./src/modules/Controllers')) {
+            echo
+            '----------------------------------------------------' . \PHP_EOL .
+            'WARNING: dir [./src/modules/Controllers] not exists!' . \PHP_EOL .
+            '----------------------------------------------------' .\PHP_EOL;
+            exit(1);
+        }
+
         \file_put_contents("./src/modules/Controllers/{$name}.php", $content);
         echo
         '----------------------------------------------------------------------' . \PHP_EOL .
