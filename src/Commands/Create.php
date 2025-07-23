@@ -15,11 +15,23 @@ final class Create
 
     public static function runCommand(array $args): void
     {
-        if (!\file_exists('./src')) {
+        $path = \realpath('./src');
+
+        if (!$path) {
             echo
             '----------------------------------------------------' . \PHP_EOL .
             'WARNING: run `cd server` before creating components!' . \PHP_EOL .
             '----------------------------------------------------' . \PHP_EOL;
+            exit(1);
+        }
+
+        $dir = \dirname($path);
+
+        if (\basename($dir) !== 'server') {
+            echo
+            '-----------------------------------------' . \PHP_EOL .
+            'WARNING: [../src] dir not a [server/src]!' . \PHP_EOL .
+            '-----------------------------------------' . \PHP_EOL;
             exit(1);
         }
 
