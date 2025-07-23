@@ -20,7 +20,7 @@ final class Create
             '----------------------------------------------------' . \PHP_EOL .
             'WARNING: run `cd server` before creating components!' . \PHP_EOL .
             '----------------------------------------------------' . \PHP_EOL;
-            exit(0);
+            exit(1);
         }
 
         [$file, $name] = [$args[2] ?? '', $args[3] ?? ''];

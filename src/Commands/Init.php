@@ -45,7 +45,7 @@ final class Init
 
         if (\file_exists('./server')) {
             echo 'WARNING: [./server/] dir already exists!' . \PHP_EOL;
-            exit(0);
+            exit(1);
         }
 
         foreach (self::$dirs as $dir) {
