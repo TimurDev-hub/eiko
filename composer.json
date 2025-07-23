@@ -2,6 +2,8 @@
     "name": "eiko/cli",
     "description": "A command-line tool for scaffolding LeafPHP projects with standardized structure and boilerplate code",
     "type": "library",
+    "keywords": ["LeafPHP", "LeafCLI", "Eiko", "EikoCLI", "LeafCLI extension"],
+    "homepage": "https://github.com/TimurDev-hub/eiko",
     "require": {
         "php": ">=8.1"
     },
