@@ -2,10 +2,11 @@
 namespace Eiko\Cli\Commands;
 
 require_once __DIR__ . '/../Generators/Controller.php';
+require_once __DIR__ . '/../Generators/Middleware.php';
 require_once __DIR__ . '/../Generators/Model.php';
 require_once __DIR__ . '/../Generators/Route.php';
 
-use Eiko\Cli\Generators\{Controller, Model, Route};
+use Eiko\Cli\Generators\{Controller, Middleware, Model, Route};
 
 final class Create
 {
@@ -37,6 +38,12 @@ final class Create
                 'Creating model...' . \PHP_EOL;
                 Model::generate(name: $name);
                 break;
+            case 'middleware':
+                echo
+                '----------------------' . \PHP_EOL .
+                'Creating middleware...' . \PHP_EOL;
+                Middleware::generate(name: $name);
+                break;
             case 'route':
                 echo
                 '-----------------' . \PHP_EOL .
@@ -45,11 +52,11 @@ final class Create
                 break;
             default:
                 echo
-                '----------------------------------------------' . \PHP_EOL .
+                '---------------------------------------------------------' . \PHP_EOL .
                 'Undefined file name;' . \PHP_EOL .
                 '--------------------' . \PHP_EOL .
-                'eiko create <route, controller, model> <name>' . \PHP_EOL .
-                '----------------------------------------------' . \PHP_EOL;
+                'eiko create <controller, middleware, model, route> <name>' . \PHP_EOL .
+                '---------------------------------------------------------' . \PHP_EOL;
         }
     }
 }

@@ -64,8 +64,8 @@ final class Init
         }
 
         echo
-        '-----------------' . \PHP_EOL .
-        'Done! `cd server`' . \PHP_EOL .
-        '-----------------' . \PHP_EOL;
+        '---------------------' . \PHP_EOL .
+        'Done! Run `cd server`' . \PHP_EOL .
+        '---------------------' . \PHP_EOL;
     }
 }
