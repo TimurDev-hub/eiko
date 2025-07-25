@@ -1,8 +1,2 @@
-# Logs;
-*.log
-
-# Application enviroment;
-.env
-
 # PHP dependencies;
 vendor/
