@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 namespace Eiko\Cli\Commands;
 
-require_once __DIR__ . '/../Templates/Template.php';
+require_once __DIR__ . '/../Templates/Files.php';
 
-use Eiko\Cli\Templates\Template;
+use Eiko\Cli\Templates\Files;
 
 final class Init
 {
@@ -24,13 +24,13 @@ final class Init
 
     private static array $files = [
         './server/logs/app.log' => '',
-        './server/public/index.php' => Template::indexPhp,
-        './server/.env' => Template::env,
-        './server/.env.example' => Template::env,
-        './server/.gitignore' => Template::gitignore,
-        './server/.htaccess' => Template::htaccess,
-        './server/composer.json' => Template::composerJson,
-        './server/README.md' => Template::readmeMd
+        './server/public/index.php' => Files::indexPhp,
+        './server/.env' => Files::env,
+        './server/.env.example' => Files::env,
+        './server/.gitignore' => Files::gitignore,
+        './server/.htaccess' => Files::htaccess,
+        './server/composer.json' => Files::composerJson,
+        './server/README.md' => Files::readmeMd
     ];
 
     private function __construct() {}
