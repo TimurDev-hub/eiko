@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 namespace Eiko\Cli\Templates;
 
-final class Template
+final class Files
 {
     private function __construct() {}
     private function __clone() {}
