@@ -42,10 +42,12 @@ eiko create <type> <name>
 ```
 Types:
 1. controller
-2. model
-3. route
+2. middleware
+3. model
+4. route
 ```bash
 eiko create controller User
+eiko create middleware Validation
 eiko create model Product
 eiko create route Auth
 ```
