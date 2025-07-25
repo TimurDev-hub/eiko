@@ -1,11 +1,6 @@
 <?php declare(strict_types=1);
 namespace Eiko\Cli\Commands;
 
-require_once __DIR__ . '/../Generators/Controller.php';
-require_once __DIR__ . '/../Generators/Middleware.php';
-require_once __DIR__ . '/../Generators/Model.php';
-require_once __DIR__ . '/../Generators/Route.php';
-
 use Eiko\Cli\Generators\{Controller, Middleware, Model, Route};
 
 final class Create
