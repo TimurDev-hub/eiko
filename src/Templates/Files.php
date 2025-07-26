@@ -82,12 +82,13 @@ final class Files
     {
         "name": "app/server",
         "description": "None",
+        "version": "0.0.1",
         "type": "project",
+        "license": "MIT",
         "require": {
             "php": ">=8.4.0",
             "leafs/leaf": "^4.2"
         },
-        "license": "MIT",
         "autoload": {
             "psr-4": {
                 "Core\\\\": "src/core/",
