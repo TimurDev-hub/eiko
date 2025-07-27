@@ -80,11 +80,19 @@ final class Files
 
     public const composerJson = <<<TXT
     {
-        "name": "app/server",
-        "description": "None",
-        "version": "0.0.1",
+        "name": "[app]/server",
+        "description": "REST API backend for [app]",
+        "version": "1.0.0",
         "type": "project",
         "license": "MIT",
+        "authors": [
+            {
+                "name": "[name]",
+                "email": "[email@gmail.com]",
+                "homepage": "[https://homepage.com/]",
+                "role": "Developer"
+            }
+        ],
         "require": {
             "php": ">=8.4.0",
             "leafs/leaf": "^4.2"
@@ -95,7 +103,8 @@ final class Files
                 "Modules\\\\": "src/modules/"
             }
         },
-        "minimum-stability": "stable"
+        "minimum-stability": "stable",
+        "prefer-stable": true
     }
 
     TXT;
