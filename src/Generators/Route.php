@@ -21,21 +21,21 @@ final class Route
 
             public static function defineRoutes(App \$app): void
             {
-                \$app->group(path: '/path', handler: function() use (\$app): void {
+                \$app->group(path: '/path', handler: function () use (\$app): void {
 
-                    \$app->get(pattern: '/get', handler: function(): void {
+                    \$app->get(pattern: '/get', handler: function (): void {
                         /** */
                     });
 
-                    \$app->post(pattern: '/create', handler: function(): void {
+                    \$app->post(pattern: '/create', handler: function (): void {
                         /** */
                     });
 
-                    \$app->put(pattern: '/update', handler: function(): void {
+                    \$app->put(pattern: '/update', handler: function (): void {
                         /** */
                     });
 
-                    \$app->delete(pattern: '/delete', handler: function(): void {
+                    \$app->delete(pattern: '/delete', handler: function (): void {
                         /** */
                     });
                 });

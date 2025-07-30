@@ -26,7 +26,7 @@ final class Files
             self::$app = new App();
 
             self::$app->cors();
-            self::$app->get(pattern: '/', handler: function(): void {
+            self::$app->get(pattern: '/', handler: function (): void {
                 /** */
             });
 
