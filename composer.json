@@ -1,11 +1,11 @@
 {
     "name": "eiko/cli",
-    "description": "A command-line tool for scaffolding LeafPHP projects with standardized structure and boilerplate code",
+    "description": "File structure generator for PHP projects. Simplifies the creation of standard directories and files for a quick start of development.",
     "type": "library",
-    "keywords": ["LeafPHP", "Leaf", "Eiko", "EikoCLI"],
+    "keywords": ["eiko", "php", "development tools", "code generator", "cli"],
     "homepage": "https://github.com/TimurDev-hub/eiko",
     "require": {
-        "php": ">=8.1"
+        "php": ">=8.2"
     },
     "license": "MIT",
     "bin": ["bin/eiko"],
@@ -16,8 +16,10 @@
     },
     "authors": [
         {
-            "name": "TimurDev",
-            "email": "dev.schuchkin.timur@gmail.com"
+            "name": "Timur Schuchkin",
+            "email": "dev.schuchkin.timur@gmail.com",
+            "homepage": "https://github.com/TimurDev-hub",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "stable"
