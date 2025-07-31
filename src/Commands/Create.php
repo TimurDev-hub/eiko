@@ -24,13 +24,13 @@ final class Create
 
         if (\basename($dir) !== 'server') {
             echo
-            '-----------------------------------------' . \PHP_EOL .
-            'WARNING: [../src] dir not a [server/src]!' . \PHP_EOL .
-            '-----------------------------------------' . \PHP_EOL;
+            '------------------------------------------' . \PHP_EOL .
+            'WARNING: [../src] dir is not [server/src]!' . \PHP_EOL .
+            '------------------------------------------' . \PHP_EOL;
             exit(1);
         }
 
-        [$file, $name] = [$args[2] ?? '', $args[3] ?? ''];
+        [$file, $name] = [$args[2] ?? '', \trim($args[3]) ?? ''];
 
         switch ($file) {
             case 'controller':

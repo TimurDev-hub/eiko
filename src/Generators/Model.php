@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 namespace Eiko\Cli\Generators;
 
-final class Model
+final class Model extends __Main
 {
     private function __construct() {}
     private function __clone() {}
@@ -17,6 +17,7 @@ final class Model
             private function __construct() {}
             private function __clone() {}
 
+            public static function get(): void {}
             public static function create(): void {}
             public static function update(): void {}
             public static function delete(): void {}
@@ -24,13 +25,10 @@ final class Model
 
         PHP;
 
-        if (!\file_exists('./src/modules/Models')) {
-            echo
-            '-----------------------------------------------' . \PHP_EOL .
-            'WARNING: dir [./src/modules/Models] not exists!' . \PHP_EOL .
-            '-----------------------------------------------' .\PHP_EOL;
-            exit(1);
-        }
+        if (!self::fileExists(
+            dir: './src/modules/Models/',
+            file: "./src/modules/Models/$name.php"
+        )) exit(1);
 
         \file_put_contents("./src/modules/Models/{$name}.php", $content);
         echo

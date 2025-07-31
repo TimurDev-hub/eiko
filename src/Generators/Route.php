@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 namespace Eiko\Cli\Generators;
 
-final class Route
+final class Route extends __Main
 {
     private function __construct() {}
     private function __clone() {}
@@ -12,45 +12,20 @@ final class Route
         <?php declare(strict_types=1);
         namespace Core\Routes;
 
-        use Leaf\App;
-
         final class $name
         {
             private function __construct() {}
             private function __clone() {}
 
-            public static function defineRoutes(App \$app): void
-            {
-                \$app->group(path: '/path', handler: function () use (\$app): void {
-
-                    \$app->get(pattern: '/get', handler: function (): void {
-                        /** */
-                    });
-
-                    \$app->post(pattern: '/create', handler: function (): void {
-                        /** */
-                    });
-
-                    \$app->put(pattern: '/update', handler: function (): void {
-                        /** */
-                    });
-
-                    \$app->delete(pattern: '/delete', handler: function (): void {
-                        /** */
-                    });
-                });
-            }
+            public static function defineRoutes(): void {}
         }
 
         PHP;
 
-        if (!\file_exists('./src/core/Routes')) {
-            echo
-            '-----------------------------------------------' . \PHP_EOL .
-            'WARNING: dir [./src/core/Routes] not exists!' . \PHP_EOL .
-            '-----------------------------------------------' .\PHP_EOL;
-            exit(1);
-        }
+        if (!self::fileExists(
+            dir: './src/core/Routes/',
+            file: "./src/core/Routes/$name.php"
+        )) exit(1);
 
         \file_put_contents("./src/core/Routes/{$name}.php", $content);
         echo

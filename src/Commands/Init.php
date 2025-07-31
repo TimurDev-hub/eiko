@@ -6,14 +6,10 @@ use Eiko\Cli\Templates\Files;
 final class Init
 {
     private static array $dirs = [
-        './server/',
         './server/logs/',
         './server/public/',
-        './server/src/',
-        './server/src/core/',
         './server/src/core/Config/',
         './server/src/core/Routes/',
-        './server/src/modules/',
         './server/src/modules/Controllers/',
         './server/src/modules/Middleware/',
         './server/src/modules/Models/',
@@ -22,13 +18,12 @@ final class Init
 
     private static array $files = [
         './server/logs/app.log' => '',
-        './server/public/index.php' => Files::indexPhp,
-        './server/.env' => Files::env,
-        './server/.env.example' => Files::env,
-        './server/.gitignore' => Files::gitignore,
-        './server/.htaccess' => Files::htaccess,
-        './server/composer.json' => Files::composerJson,
-        './server/README.md' => Files::readmeMd
+        './server/public/index.php' => Files::index->value,
+        './server/.env' => Files::env->value,
+        './server/.env.example' => Files::env->value,
+        './server/.gitignore' => Files::gitignore->value,
+        './server/composer.json' => Files::composer->value,
+        './server/README.md' => ''
     ];
 
     private function __construct() {}
@@ -48,7 +43,7 @@ final class Init
 
         foreach (self::$dirs as $dir) {
             echo "Created dir: [$dir]" . \PHP_EOL;
-            \mkdir($dir);
+            \mkdir(directory: $dir, recursive: true);
         }
 
         echo

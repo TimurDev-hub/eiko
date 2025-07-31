@@ -15,12 +15,20 @@ try {
             echo Create::runCommand(args: $argv);
             break;
         default:
-            echo
-            '--------------' . \PHP_EOL .
-            'Commands list:' . \PHP_EOL .
-            '--------------' . \PHP_EOL .
-            '|eiko init                                                |-> Init structure;' . \PHP_EOL .
-            '|eiko create <controller, middleware, model, route> <name>|-> Creat component;' . \PHP_EOL;
+            echo <<<TXT
+            _________________________________>
+            | ######  ####   ##  ##    ####
+            | ##       ##    ## ##    ##  ##
+            | #####    ##    ####    ##    ##
+            | ##       ##    ## ##    ##  ##
+            | ######  ####   ##  ##    ####
+            ^
+            TXT . \PHP_EOL .
+            '|------------------------------------------------------------------------------|' . \PHP_EOL .
+            '|Commands list:                                                                |' . \PHP_EOL .
+            '|------------------------------------------------------------------------------|' . \PHP_EOL .
+            '|eiko init                                                |-> Init structure;  |' . \PHP_EOL .
+            '|eiko create <controller, middleware, model, route> <name>|-> Creat component; |' . \PHP_EOL;
     }
 } catch (Throwable) {
     echo

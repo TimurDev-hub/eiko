@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 namespace Eiko\Cli\Generators;
 
-final class Middleware
+final class Middleware extends __Main
 {
     private function __construct() {}
     private function __clone() {}
@@ -22,13 +22,10 @@ final class Middleware
 
         PHP;
 
-        if (!\file_exists('./src/modules/Middleware')) {
-            echo
-            '---------------------------------------------------' . \PHP_EOL .
-            'WARNING: dir [./src/modules/Middleware] not exists!' . \PHP_EOL .
-            '---------------------------------------------------' .\PHP_EOL;
-            exit(1);
-        }
+        if (!self::fileExists(
+            dir: './src/modules/Middleware/',
+            file: "./src/modules/Middleware/$name.php"
+        )) exit(1);
 
         \file_put_contents("./src/modules/Middleware/{$name}.php", $content);
         echo

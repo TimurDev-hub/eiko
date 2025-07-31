@@ -1,48 +1,32 @@
 <?php declare(strict_types=1);
 namespace Eiko\Cli\Templates;
 
-final class Files
+enum Files: string
 {
-    private function __construct() {}
-    private function __clone() {}
-
-    public const indexPhp = <<<'TXT'
+    /**
+     * return 'index.php' template;
+    */
+    case index = <<<TXT
     <?php declare(strict_types=1);
 
     require_once __DIR__ . '/../vendor/autoload.php';
 
-    use Leaf\App;
-    //use Core\Routes\{Auth, Post, User};
-
-    final class Core
+    final class App
     {
-        private static ?App $app = null;
-
         private function __construct() {}
         private function __clone() {}
 
-        public static function boot(): void
-        {
-            self::$app = new App();
-
-            self::$app->cors();
-            self::$app->get(pattern: '/', handler: function (): void {
-                /** */
-            });
-
-            //Auth::defineRoutes(app: self::$app);
-            //Post::defineRoutes(app: self::$app);
-            //User::defineRoutes(app: self::$app);
-
-            self::$app->run();
-        }
+        public static function boot(): void {}
     }
 
-    Core::boot();
+    App::boot();
 
     TXT;
 
-    public const env = <<<TXT
+    /**
+     * return '.env' and '.env.exampple' templates;
+     */
+    case env = <<<TXT
     # Database;
     DB_HOST=''
     DB_PORT=''
@@ -59,7 +43,10 @@ final class Files
 
     TXT;
 
-    public const gitignore = <<<TXT
+    /**
+     * return '.gitignore' template;
+     */
+    case gitignore = <<<TXT
     # Logs;
     *.log
 
@@ -71,31 +58,26 @@ final class Files
 
     TXT;
 
-    public const htaccess = <<<TXT
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ server/public/index.php [L]
-
-    TXT;
-
-    public const composerJson = <<<TXT
+    /**
+     * return 'composer.json' template;
+     */
+    case composer = <<<TXT
     {
-        "name": "[app]/server",
-        "description": "REST API backend for [app]",
+        "name": "[app_name]/server",
+        "description": "None",
         "version": "1.0.0",
         "type": "project",
         "license": "MIT",
         "authors": [
             {
-                "name": "[name]",
-                "email": "[email@gmail.com]",
-                "homepage": "[https://homepage.com/]",
+                "name": "[your_name]",
+                "email": "[your_email@gmail.com]",
+                "homepage": "[https:\\//your_homepage.com/]",
                 "role": "Developer"
             }
         ],
         "require": {
-            "php": ">=8.4.0",
-            "leafs/leaf": "^4.2"
+            "php": ">=8.2.0"
         },
         "autoload": {
             "psr-4": {
@@ -107,9 +89,5 @@ final class Files
         "prefer-stable": true
     }
 
-    TXT;
-
-    public const readmeMd = <<<TXT
-    ## None;
     TXT;
 }
