@@ -65,7 +65,6 @@ enum Files: string
     {
         "name": "[app_name]/server",
         "description": "None",
-        "version": "1.0.0",
         "type": "project",
         "license": "MIT",
         "authors": [
