@@ -25,15 +25,17 @@ final class Controller extends __Main
 
         PHP;
 
-        if (!self::fileExists(
+        if (!self::filesExists(
             dir: './src/modules/Controllers/',
             file: "./src/modules/Controllers/$name.php"
         )) exit(1);
 
         \file_put_contents("./src/modules/Controllers/{$name}.php", $content);
-        echo
-        '----------------------------------------------------------------------' . \PHP_EOL .
-        "Controller [$name] created in [./src/modules/Controllers/{$name}.php]!" . \PHP_EOL .
-        '----------------------------------------------------------------------' .\PHP_EOL;
+
+        echo <<<TXT
+        ----------------------------------------------------------------------
+        Controller [$name] created in [./src/modules/Controllers/{$name}.php]!
+        ----------------------------------------------------------------------
+        TXT;
     }
 }

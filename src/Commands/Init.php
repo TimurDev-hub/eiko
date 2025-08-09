@@ -6,59 +6,70 @@ use Eiko\Cli\Templates\Files;
 final class Init
 {
     private static array $dirs = [
-        './server/logs/',
-        './server/public/',
-        './server/src/core/Config/',
-        './server/src/core/Routes/',
-        './server/src/modules/Controllers/',
-        './server/src/modules/Middleware/',
-        './server/src/modules/Models/',
-        './server/src/modules/Utils/'
+        'logs/',
+        'public/',
+        'src/core/Config/',
+        'src/core/Routes/',
+        'src/modules/Controllers/',
+        'src/modules/Middleware/',
+        'src/modules/Models/',
+        'src/modules/Utils/'
     ];
 
     private static array $files = [
-        './server/logs/app.log' => '',
-        './server/public/index.php' => Files::index->value,
-        './server/.env' => Files::env->value,
-        './server/.env.example' => Files::env->value,
-        './server/.gitignore' => Files::gitignore->value,
-        './server/composer.json' => Files::composer->value,
-        './server/README.md' => ''
+        'logs/app.log' => '',
+        'public/index.php' => Files::index->value,
+        '.env' => Files::env->value,
+        '.env.example' => Files::env->value,
+        '.gitignore' => Files::gitignore->value,
+        'composer.json' => Files::composer->value,
+        'project.eiko.md' => '',
+        'README.md' => ''
     ];
 
     private function __construct() {}
     private function __clone() {}
 
-    public static function runCommand(): void
+    public static function runCommand(string $rootDir): void
     {
-        echo
-        '-------------------------' . \PHP_EOL .
-        'Creating dir structure...' . \PHP_EOL .
-        '-------------------------' . \PHP_EOL;
+        echo <<<TXT
+        -------------------------
+        Creating dir structure...
+        -------------------------
+        TXT;
 
-        if (\file_exists('./server')) {
-            echo 'WARNING: [./server/] dir already exists!' . \PHP_EOL;
+        if (!\preg_match('/^[a-z0-9_\-]+$/si', $rootDir)) {
+            echo "WARNING: [$rootDir] has non-valid name!" . \PHP_EOL;
             exit(1);
         }
 
-        foreach (self::$dirs as $dir) {
-            echo "Created dir: [$dir]" . \PHP_EOL;
-            \mkdir(directory: $dir, recursive: true);
+        if (\file_exists($rootDir)) {
+            echo "WARNING: [$rootDir] dir already exists!" . \PHP_EOL;
+            exit(1);
         }
 
-        echo
-        '--------------------------' . \PHP_EOL .
-        'Creating file structure...' . \PHP_EOL .
-        '--------------------------' . \PHP_EOL;
+        $rootDir = './' . \trim($rootDir, '/') . '/';
+
+        foreach (self::$dirs as $dir) {
+            echo "Created dir: [{$rootDir}{$dir}]" . \PHP_EOL;
+            \mkdir(directory: $rootDir . $dir, recursive: true);
+        }
+
+        echo <<<TXT
+        --------------------------
+        Creating file structure...
+        --------------------------
+        TXT;
 
         foreach (self::$files as $file => $content) {
-            echo "Created file: [$file]" . \PHP_EOL;
-            \file_put_contents($file, $content);
+            echo "Created file: [{$rootDir}{$file}]" . \PHP_EOL;
+            \file_put_contents($rootDir . $file, $content);
         }
 
-        echo
-        '---------------------' . \PHP_EOL .
-        'Done! Run `cd server`' . \PHP_EOL .
-        '---------------------' . \PHP_EOL;
+        echo <<<TXT
+        ---------------------
+        Done! Run `cd $rootDir`
+        ---------------------
+        TXT;
     }
 }

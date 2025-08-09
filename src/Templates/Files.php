@@ -56,6 +56,9 @@ enum Files: string
     # PHP dependencies;
     vendor/
 
+    # Eiko;
+    project.eiko.md
+
     TXT;
 
     /**
@@ -63,15 +66,15 @@ enum Files: string
      */
     case composer = <<<TXT
     {
-        "name": "[app_name]/server",
+        "name": "***/server",
         "description": "None",
         "type": "project",
         "license": "MIT",
         "authors": [
             {
-                "name": "[your_name]",
-                "email": "[your_email@gmail.com]",
-                "homepage": "[https:\\//your_homepage.com/]",
+                "name": "***",
+                "email": "***",
+                "homepage": "***",
                 "role": "Developer"
             }
         ],

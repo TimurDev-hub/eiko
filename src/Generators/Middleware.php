@@ -22,15 +22,17 @@ final class Middleware extends __Main
 
         PHP;
 
-        if (!self::fileExists(
+        if (!self::filesExists(
             dir: './src/modules/Middleware/',
             file: "./src/modules/Middleware/$name.php"
         )) exit(1);
 
         \file_put_contents("./src/modules/Middleware/{$name}.php", $content);
-        echo
-        '--------------------------------------------------------------------' . \PHP_EOL .
-        "Middleware [$name] created in [./src/modules/Middleware/{$name}.php]!" . \PHP_EOL .
-        '--------------------------------------------------------------------' .\PHP_EOL;
+
+        echo <<<TXT
+        --------------------------------------------------------------------
+        Middleware [$name] created in [./src/modules/Middleware/{$name}.php]!
+        --------------------------------------------------------------------
+        TXT;
     }
 }

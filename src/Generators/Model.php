@@ -25,15 +25,17 @@ final class Model extends __Main
 
         PHP;
 
-        if (!self::fileExists(
+        if (!self::filesExists(
             dir: './src/modules/Models/',
             file: "./src/modules/Models/$name.php"
         )) exit(1);
 
         \file_put_contents("./src/modules/Models/{$name}.php", $content);
-        echo
-        '------------------------------------------------------------' . \PHP_EOL .
-        "Model [$name] created in [./src/modules/Models/{$name}.php]!" . \PHP_EOL .
-        '------------------------------------------------------------' .\PHP_EOL;
+
+        echo <<<TXT
+        ------------------------------------------------------------
+        Model [$name] created in [./src/modules/Models/{$name}.php]!
+        ------------------------------------------------------------
+        TXT;
     }
 }

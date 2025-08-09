@@ -22,15 +22,17 @@ final class Route extends __Main
 
         PHP;
 
-        if (!self::fileExists(
+        if (!self::filesExists(
             dir: './src/core/Routes/',
             file: "./src/core/Routes/$name.php"
         )) exit(1);
 
         \file_put_contents("./src/core/Routes/{$name}.php", $content);
-        echo
-        '---------------------------------------------------------' . \PHP_EOL .
-        "Route [$name] created in [./src/core/Routes/{$name}.php]!" . \PHP_EOL .
-        '---------------------------------------------------------' .\PHP_EOL;
+
+        echo <<<TXT
+        ---------------------------------------------------------
+        Route [$name] created in [./src/core/Routes/{$name}.php]!
+        ---------------------------------------------------------
+        TXT;
     }
 }
