@@ -36,7 +36,7 @@ final class Init
         -------------------------
         Creating dir structure...
         -------------------------
-        TXT;
+        TXT . \PHP_EOL;
 
         if (!\preg_match('/^[a-z0-9_\-]+$/si', $rootDir)) {
             echo "WARNING: [$rootDir] has non-valid name!" . \PHP_EOL;
@@ -59,7 +59,7 @@ final class Init
         --------------------------
         Creating file structure...
         --------------------------
-        TXT;
+        TXT . \PHP_EOL;
 
         foreach (self::$files as $file => $content) {
             echo "Created file: [{$rootDir}{$file}]" . \PHP_EOL;
@@ -70,6 +70,6 @@ final class Init
         ---------------------
         Done! Run `cd $rootDir`
         ---------------------
-        TXT;
+        TXT . \PHP_EOL;
     }
 }

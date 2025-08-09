@@ -36,6 +36,6 @@ final class Controller extends __Main
         ----------------------------------------------------------------------
         Controller [$name] created in [./src/modules/Controllers/{$name}.php]!
         ----------------------------------------------------------------------
-        TXT;
+        TXT . \PHP_EOL;
     }
 }

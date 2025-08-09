@@ -33,6 +33,6 @@ final class Route extends __Main
         ---------------------------------------------------------
         Route [$name] created in [./src/core/Routes/{$name}.php]!
         ---------------------------------------------------------
-        TXT;
+        TXT . \PHP_EOL;
     }
 }

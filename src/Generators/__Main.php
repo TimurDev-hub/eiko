@@ -13,7 +13,7 @@ abstract class __Main
             |-------------
             | WARNING: dir [$dir] not exists!
             |-------------
-            TXT;
+            TXT . \PHP_EOL;
             return false;
         }
 
@@ -22,7 +22,7 @@ abstract class __Main
             |--------------
             | WARNING: file [$file] already exists! Run `rm $file` or set another name;
             |--------------
-            TXT;
+            TXT . \PHP_EOL;
             return false;
         }
 

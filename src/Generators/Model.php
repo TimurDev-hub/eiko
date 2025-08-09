@@ -36,6 +36,6 @@ final class Model extends __Main
         ------------------------------------------------------------
         Model [$name] created in [./src/modules/Models/{$name}.php]!
         ------------------------------------------------------------
-        TXT;
+        TXT . \PHP_EOL;
     }
 }

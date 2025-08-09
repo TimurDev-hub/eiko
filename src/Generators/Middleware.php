@@ -33,6 +33,6 @@ final class Middleware extends __Main
         --------------------------------------------------------------------
         Middleware [$name] created in [./src/modules/Middleware/{$name}.php]!
         --------------------------------------------------------------------
-        TXT;
+        TXT . \PHP_EOL;
     }
 }

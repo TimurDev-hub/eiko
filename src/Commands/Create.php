@@ -19,7 +19,7 @@ final class Create
             --------------------------------------------------------------'
             WARNING: run `cd your_prodect_dir` before creating components!'
             --------------------------------------------------------------'
-            TXT;
+            TXT . \PHP_EOL;
             exit(1);
         }
 
@@ -31,7 +31,7 @@ final class Create
                      run `cd your_prodect_dir`
                      or `touch ./project.eiko.md`;
             ----------------------------------------------
-            TXT;
+            TXT . \PHP_EOL;
             exit(1);
         }
 
@@ -40,7 +40,7 @@ final class Create
                 echo <<<TXT
                 ----------------------
                 Creating controller...
-                TXT;
+                TXT . \PHP_EOL;
                 Controller::generate(name: $name);
                 break;
 
@@ -48,7 +48,7 @@ final class Create
                 echo <<<TXT
                 -----------------
                 Creating model...
-                TXT;
+                TXT . \PHP_EOL;
                 Model::generate(name: $name);
                 break;
 
@@ -56,7 +56,7 @@ final class Create
                 echo <<<TXT
                 ----------------------
                 Creating middleware...
-                TXT;
+                TXT . \PHP_EOL;
                 Middleware::generate(name: $name);
                 break;
 
@@ -64,7 +64,7 @@ final class Create
                 echo <<<TXT
                 -----------------
                 Creating route...
-                TXT;
+                TXT . \PHP_EOL;
                 Route::generate(name: $name);
                 break;
 
@@ -75,7 +75,7 @@ final class Create
                 |------------------->
                 | eiko create <controller, middleware, model, route> <name>
                 |----------------------------------------------------------
-                TXT;
+                TXT . \PHP_EOL;
                 exit(1);
         }
     }
