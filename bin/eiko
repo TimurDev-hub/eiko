@@ -9,33 +9,37 @@ use Eiko\Cli\Commands\Create;
 try {
     switch($argv[1] ?? '') {
         case 'init':
-            echo Init::runCommand();
+            echo Init::runCommand(rootDir: $argv[2] ?? 'server');
             break;
+
         case 'create':
-            echo Create::runCommand(args: $argv);
+            echo Create::runCommand(file: $argv[2] ?? '', name: $argv[3] ?? '');
             break;
+
         default:
             echo <<<TXT
-            _________________________________>
-            | ######  ####   ##  ##    ####
-            | ##       ##    ## ##    ##  ##
-            | #####    ##    ####    ##    ##
-            | ##       ##    ## ##    ##  ##
-            | ######  ####   ##  ##    ####
-            ^
-            TXT . \PHP_EOL .
-            '|------------------------------------------------------------------------------|' . \PHP_EOL .
-            '|Commands list:                                                                |' . \PHP_EOL .
-            '|------------------------------------------------------------------------------|' . \PHP_EOL .
-            '|eiko init                                                |-> Init structure;  |' . \PHP_EOL .
-            '|eiko create <controller, middleware, model, route> <name>|-> Creat component; |' . \PHP_EOL;
+            |-------------------------------------------------------------------------------|
+            | ######  ####   ##  ##    ####                                                 |
+            | ##       ##    ## ##    ##  ##                                                |
+            | #####    ##    ####    ##    ##                                               |
+            | ##       ##    ## ##    ##  ##                                                |
+            | ######  ####   ##  ##    ####                                                 |
+            |-------------------------------------------------------------------------------|
+            | Commands list:                                                                |
+            |-------------->                                                                |
+            | eiko init <name>                                         |-> Init structure;  |
+            | eiko create <controller, middleware, model, route> <name>|-> Creat component; |
+            |-------------------------------------------------------------------------------|
+            TXT;
     }
+
 } catch (Throwable) {
-    echo
-    '-------------------------' . \PHP_EOL .
-    '|Something went wrong...|' . \PHP_EOL .
-    '|Run `eiko i`           |' . \PHP_EOL .
-    '-------------------------' . \PHP_EOL;
+    echo <<<TXT
+    |-------------------------|
+    | Something went wrong... |
+    | Run `eiko i`            |
+    |-------------------------|
+    TXT;
 
     exit(1);
 }
