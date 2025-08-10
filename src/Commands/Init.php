@@ -6,7 +6,6 @@ use Eiko\Cli\Templates\Files;
 final class Init
 {
     private static array $dirs = [
-        'logs/',
         'public/',
         'src/core/Config/',
         'src/core/Routes/',
@@ -17,7 +16,6 @@ final class Init
     ];
 
     private static array $files = [
-        'logs/app.log' => '',
         'public/index.php' => Files::index->value,
         '.env' => Files::env->value,
         '.env.example' => Files::env->value,
@@ -48,7 +46,7 @@ final class Init
             exit(1);
         }
 
-        $rootDir = './' . \trim($rootDir, '/') . '/';
+        $rootDir = './' . \trim($rootDir) . '/';
 
         foreach (self::$dirs as $dir) {
             echo "Created dir: [{$rootDir}{$dir}]" . \PHP_EOL;
